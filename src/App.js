@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './styles/App.css';
+import { useFetch } from './hooks/useFetch';
+import { useContext, useEffect } from 'react';
+import { AppContext } from './context';
+import { displayFruits, fruitRandom } from './utils';
+import Listfruits from './components/Listfruits';
+import { observer } from 'mobx-react-lite';
+
+const App = observer(() => {
+  const {fruits} = useContext(AppContext)
+  const [fetching, loading, error] = useFetch(() => {
+    fruits.setFruitsStatusFalse(fruits.fruits)
+    fruits.setFruitsDisplay(displayFruits(fruits.fruitsStatusFalse))
+    let index = fruitRandom(fruits.fruitsDisplay.length)
+    fruits.setCurrentFruit(null)    
+  })
+
+  useEffect(() => {
+    fetching()
+  },[fruits])  
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        !loading &&
+        fruits.fruitsDisplay !== null ? 
+            //<Listfruits fruits={fruits.fruitsDisplay} /> :
+              <Listfruits  /> :
+                <h1>The End</h1>
+      }
+
     </div>
   );
-}
+})
 
 export default App;

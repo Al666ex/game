@@ -1,0 +1,173 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+    font-family: sory;
+    src: url('../static/fonts/SORRY_SORRY.ttf');
+}
+
+@font-face{
+    font-family: KGCorneroftheSky; 
+    src: url('../static/fonts/KGCorneroftheSky.ttf');   
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+    cursor: url('../static/cursor/cursor.png'), auto;	
+    background: linear-gradient(to left,  #D39D38, #5614B0); 
+    height: 100vh;  
+
+  
+}
+
+.App{
+  user-select: none
+}  
+
+.container{  
+    display: grid;      
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+.h1_text{
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#111));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* margin-top: 60px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-family: sory;
+    font-size: 46px;
+    border-radius: 5px;  
+  
+  }
+ 
+  .fruit{
+    position: relative;
+      width: 100%;
+      height: 40px;
+      text-align: center;
+      padding-top: 5px;
+      margin-bottom: 20px;
+  }
+  
+  .fruit_word{
+       
+    
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-family: sory;
+    font-size: 46px;
+    background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);  
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .ani{
+    background: transparent;
+    border: none;
+    animation: anime 0.7s;   
+  }
+
+  .overlay{
+    opacity: 0.4;
+    transition: 0.7s;
+
+    position: relative;
+    width: 100%;
+  }
+
+  h2 {
+    position: absolute;        
+    bottom: 7%;
+    left: 0;
+    width: 100%;
+    color: floralwhite;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgba(128,128,128,0);
+    opacity: 1;
+    }
+h2 span {
+    color: #fff;
+    font-size: 30px;
+    opacity: 1;    
+    padding: 10px;
+    }
+
+  .win{
+    background: url('../static/images/check.png');
+    background-size: cover;
+  }
+  
+  img{
+    width: 100%;
+    object-fit: cover;
+    background: transparent; 
+  }
+
+  @keyframes anime{
+    0%{
+      opacity: 0;
+      transition: 0.7s all linear;
+    }
+  
+    100%{
+      opacity: 1;
+      transition: 0.7s all linear;
+    }
+  }
+ 
+
+  @media (max-height: 601px) {
+
+    .App{
+      width: 60%;
+      margin: 0 auto;
+    }
+
+    .header{
+      margin-top: 10px;
+    }
+    
+    .container{
+      margin-top: 25px;
+    }
+
+    .h1_text{
+      background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#111));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* margin-top: 60px; */
+      padding-top: 5px;
+      padding-bottom: 5px;
+      text-align: center;
+      font-family: sory;
+      font-size: 25px;
+      border-radius: 5px;      
+    }
+   
+    .fruit{
+        height: 15px;
+        text-align: center;
+        padding-top: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .fruit_word{
+      padding-bottom: 5px;
+      padding-top: 5px;
+      font-family: sory;
+      font-size: 40px;
+      background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);  
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }    
+  }
+
