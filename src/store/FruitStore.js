@@ -25,6 +25,15 @@ import chickpea from '../static/images/chickpea.png'
 import beetroot from '../static/images/beetroot.png'
 import beans from '../static/images/beans.png'
 import cauliflower from '../static/images/cauliflower.png'
+import potato from '../static/images/potato.png'
+import melon from '../static/images/melon.png'
+import grapefruit from '../static/images/grapefruit.png'
+import blackberry from '../static/images/blackberry.png'
+import lettuce from '../static/images/lettuce.png'
+import ginger from '../static/images/ginger.png'
+
+
+//
 
 import tomatoSound from '../static/mp3/tomato.mp3' 
 import watermelonSound from '../static/mp3/watermelon.mp3' 
@@ -50,6 +59,14 @@ import chickpeaSound from '../static/mp3/chickpea.mp3'
 import beetrootSound from '../static/mp3/beetroot.mp3'
 import beansSound from '../static/mp3/beans.mp3'
 import cauliflowerSound from '../static/mp3/cauliflower.mp3'
+import potatoSound from '../static/mp3/potato.mp3'
+import melonSound from '../static/mp3/melon.mp3'
+import grapefruitSound from '../static/mp3/grapefruit.mp3'
+import blackberrySound from '../static/mp3/blackberry.mp3'
+import lettuceSound from '../static/mp3/lettuce.mp3'
+import gingerSound from '../static/mp3/ginger.mp3'
+
+
 
 // import pearSound from '../static/mp3/pear.mp3';
 
@@ -58,8 +75,8 @@ export default class FruitStore{
         this._fruits = [
             {id : 1, fruit : 'tomato',  status:false, image : tomato, mp3 : tomatoSound},
             {id : 2, fruit : 'watermelon', status:false, image : watermelon, mp3 : watermelonSound},
-            {id : 3, fruit : 'pomegranate',  status:false, image : pomegranate, mp3 : pomegranateSound},
-            {id : 4, fruit : 'walnut',status:false, image : walnut, mp3 : walnutSound},
+            // {id : 3, fruit : 'pomegranate',  status:false, image : pomegranate, mp3 : pomegranateSound},
+            // {id : 4, fruit : 'walnut',status:false, image : walnut, mp3 : walnutSound},
             // {id : 5, fruit : 'currant',  status:true, image : currant, mp3 : currantSound},
             // {id : 6, fruit : 'raspberries',status:false, image : raspberries, mp3 : raspberriesSound},
             // {id : 7, fruit : 'pepper',status:false, image : pepper, mp3 : pepperSound},
@@ -79,7 +96,13 @@ export default class FruitStore{
             // {id : 21, fruit : 'chickpea',status:false, image : chickpea, mp3 : chickpeaSound},
             // {id : 22, fruit : 'beetroot',status:false, image : beetroot, mp3 : beetrootSound},
             // {id : 23, fruit : 'beans',status:false, image : beans, mp3 : beansSound},
-            // {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound}
+            // {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound},
+            // {id : 25, fruit : 'potato',status:false, image : potato, mp3 : potatoSound},
+            // {id : 26, fruit : 'melon',status:false, image : melon, mp3 : melonSound},
+            // {id : 27, fruit : 'grapefruit',status:false, image : grapefruit, mp3 : grapefruitSound},
+            // {id : 28, fruit : 'blackberry',status:false, image : blackberry, mp3 : blackberrySound},
+            // {id : 29, fruit : 'lettuce',status:false, image : lettuce, mp3 : lettuceSound},
+            // {id : 30, fruit : 'ginger',status:false, image : ginger, mp3 : gingerSound},
             
           ]
           
@@ -99,7 +122,18 @@ export default class FruitStore{
                 let index = fruitRandom(this._fruitsDisplay.length)
                 let arrId = this._fruitsDisplay[index]                    
                 this._currentFruit = arrId
-            }           
+            }       
+            
+            if(this._fruitsStatusFalse.length <= 6 && id === this._currentFruit.id){
+                let arr = []                  
+                arr = this._fruitsDisplay.filter(item => item.id !== id)                
+                let index = fruitRandom(arr.length)                
+                let arrId = arr[index]                 
+                this._currentFruit = arrId
+                return
+            } 
+            
+
             if(id === this._currentFruit.id) 
             {                
                 let arr = []                                 

@@ -48,6 +48,14 @@ body{
     border-radius: 5px;  
   
   }
+
+.h1_center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 50%;
+  right: 50%;
+}
  
   .fruit{
     position: relative;
@@ -58,8 +66,7 @@ body{
       margin-bottom: 20px;
   }
   
-  .fruit_word{
-       
+  .fruit_word{   
     
     padding-bottom: 5px;
     padding-top: 5px;
@@ -74,6 +81,7 @@ body{
     background: transparent;
     border: none;
     animation: anime 0.7s;   
+    position: relative;
   }
 
   .overlay{
@@ -100,6 +108,23 @@ h2 span {
     opacity: 1;    
     padding: 10px;
     }
+
+h1 {
+  position: absolute;
+  bottom: 45%;
+  left: 25%;
+  color: floralwhite;
+  font-family: KGCorneroftheSky;
+  background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* background-color: rgba(128,128,128,0); */
+  }
+h1 span {  
+  font-size: 60px;   
+
+  /* padding: 10px; */
+  }
 
   .win{
     background: url('../static/images/check.png');
@@ -168,6 +193,32 @@ h2 span {
       background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);  
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-    }    
+    }   
+    
+    
+    h1 {
+      position: absolute;
+      bottom: 45%;
+      left: 25%;
+      color: floralwhite;
+      font-family: KGCorneroftheSky;
+      background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);  
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      /* background-color: rgba(128,128,128,0); */
+      }
+    h1 span {  
+      font-size: 30px;   
+    
+      /* padding: 10px; */
+      }    
   }
 
+  /* @media screen and (max-height: 401px),  
+  screen and (max-width: 400px){
+    h1 {      
+      left: 25%;
+      font-size: 20px;  
+    }
+  
+  } */

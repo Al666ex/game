@@ -13,7 +13,7 @@ const Listfruits = observer(() => {
        <Header />       
        <div className="container">
             {fruits.fruitsDisplay.map(item => 
-                <Fruit key={item.id} item={item} />
+                <Fruit key={item.id} item={item}  />
             )}
       </div>
     </>

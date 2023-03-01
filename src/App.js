@@ -6,6 +6,8 @@ import { AppContext } from './context';
 import { displayFruits, fruitRandom } from './utils';
 import Listfruits from './components/Listfruits';
 import { observer } from 'mobx-react-lite';
+import StartEnd from './components/StartEnd';
+
 
 const App = observer(() => {
   const {fruits} = useContext(AppContext)
@@ -23,11 +25,12 @@ const App = observer(() => {
   return (
     <div className="App">
       {
-        !loading &&
-        fruits.fruitsDisplay !== null ? 
+        !loading && fruits.fruitsDisplay !== null ? 
             //<Listfruits fruits={fruits.fruitsDisplay} /> :
               <Listfruits  /> :
-                <h1>The End</h1>
+                // <h1>The End</h1>
+                <StartEnd msg='End' />
+
       }
 
     </div>
