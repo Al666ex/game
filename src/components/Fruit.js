@@ -17,12 +17,13 @@ const Fruit = observer(({item}) => {
 
     useEffect(() => {
         setDisabled(false)
+    
     },[fruits.currentFruit])
 
     const update = () => {                
         
         fruits.setCurrentFruit(id)                
-        play.play()
+        // play.play()
         console.log(fruits.currentFruit.id)        
         setDisabled(true)    
         console.log('useEffect from Fruit')            

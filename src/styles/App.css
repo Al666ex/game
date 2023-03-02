@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    cursor: url('../static/cursor/cursor.png'), auto;	
 }
 
 @font-face{
@@ -18,7 +19,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;    
-    cursor: url('../static/cursor/cursor.png'), auto;	
+    /* cursor: url('../static/cursor/cursor.png'), auto;	 */
     background: linear-gradient(to left,  #D39D38, #5614B0); 
     height: 100vh;  
 

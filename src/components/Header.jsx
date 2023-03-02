@@ -10,6 +10,10 @@ const Header = observer(() => {
     const [chack, setCheck] = useState(fruits.currentFruit )        
     //const [play, setPlay] = useState( typeof Audio !== "undefined" && new Audio(mp3)); //this will prevent rendering errors on NextJS since NodeJs doesn't recognise HTML tags neither its libs.
 
+    useEffect(() => {
+        autoPlayFunc()
+    },[fruit])
+
     const autoPlayFunc = (e) => {            
             new Audio(mp3).play()   
     }    

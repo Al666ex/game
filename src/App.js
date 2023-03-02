@@ -1,7 +1,7 @@
 
 import './styles/App.css';
 import { useFetch } from './hooks/useFetch';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AppContext } from './context';
 import { displayFruits, fruitRandom } from './utils';
 import Listfruits from './components/Listfruits';
@@ -11,6 +11,7 @@ import StartEnd from './components/StartEnd';
 
 const App = observer(() => {
   const {fruits} = useContext(AppContext)
+  const [start, setStart] = useState(false)
   const [fetching, loading, error] = useFetch(() => {
     fruits.setFruitsStatusFalse(fruits.fruits)
     fruits.setFruitsDisplay(displayFruits(fruits.fruitsStatusFalse))
@@ -24,13 +25,10 @@ const App = observer(() => {
 
   return (
     <div className="App">
-      {
-        !loading && fruits.fruitsDisplay !== null ? 
-            //<Listfruits fruits={fruits.fruitsDisplay} /> :
-              <Listfruits  /> :
-                // <h1>The End</h1>
-                <StartEnd msg='End' />
-
+      {!start ? <StartEnd msg='Start' onClick={setStart} start={start} /> :        
+        !loading && fruits.fruitsDisplay !== null ?             
+              <Listfruits  /> :            
+                <StartEnd msg='End' onClick={setStart} start={start} />
       }
 
     </div>
