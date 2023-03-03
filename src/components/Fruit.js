@@ -24,9 +24,9 @@ const Fruit = observer(({item}) => {
         
         fruits.setCurrentFruit(id)                
         // play.play()
-        console.log(fruits.currentFruit.id)        
+        //console.log(fruits.currentFruit.id)        
         setDisabled(true)    
-        console.log('useEffect from Fruit')            
+        //console.log('useEffect from Fruit')            
     }
 
     //const WrongRender = () => <h2><span>{fruit}</span></h2>

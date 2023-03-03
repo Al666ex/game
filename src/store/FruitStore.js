@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { fruitRandom } from "../utils";
+import { fruitRandom, displayFruits } from "../utils";
 
 import tomato from '../static/images/tomato.png' 
 import watermelon from '../static/images/watermelon.png' 
@@ -78,31 +78,31 @@ export default class FruitStore{
             {id : 3, fruit : 'pomegranate',  status:false, image : pomegranate, mp3 : pomegranateSound, count : 0},
             {id : 4, fruit : 'walnut',status:false, image : walnut, mp3 : walnutSound, count : 0},
             {id : 5, fruit : 'currant',  status:true, image : currant, mp3 : currantSound, count : 0},
-            {id : 6, fruit : 'raspberries',status:false, image : raspberries, mp3 : raspberriesSound, count : 0},
-            {id : 7, fruit : 'pepper',status:false, image : pepper, mp3 : pepperSound, count : 0},
-            {id : 8, fruit : 'apricot',  status:false, image : apricot, mp3 : apricotSound, count : 0},
-            {id : 9, fruit : 'banana',status:false, image : banana, mp3 : bananaSound, count : 0},
-            {id : 10, fruit : 'pistachio',  status:false, image : pistachio, mp3 : pistachioSound, count : 0},            
-            {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
-            {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
-            {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
-            {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
-            {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
-            {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
-            {id : 17, fruit : 'corn',status:false, image : corn, mp3 : cornSound, count : 0},
-            {id : 18, fruit : 'guarana',status:false, image : guarana, mp3 : guaranaSound, count : 0},
-            {id : 19, fruit : 'kiwi',status:false, image : kiwi, mp3 : kiwiSound, count : 0},
-            {id : 20, fruit : 'cabbage',status:false, image : cabbage, mp3 : cabbageSound, count : 0},
-            {id : 21, fruit : 'chickpea',status:false, image : chickpea, mp3 : chickpeaSound, count : 0},
-            {id : 22, fruit : 'beetroot',status:false, image : beetroot, mp3 : beetrootSound, count : 0},
-            {id : 23, fruit : 'beans',status:false, image : beans, mp3 : beansSound, count : 0},
-            {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound, count : 0},
-            {id : 25, fruit : 'potato',status:false, image : potato, mp3 : potatoSound, count : 0},
-            {id : 26, fruit : 'melon',status:false, image : melon, mp3 : melonSound, count : 0},
-            {id : 27, fruit : 'grapefruit',status:false, image : grapefruit, mp3 : grapefruitSound, count : 0},
-            {id : 28, fruit : 'blackberry',status:false, image : blackberry, mp3 : blackberrySound, count : 0},
-            {id : 29, fruit : 'lettuce',status:false, image : lettuce, mp3 : lettuceSound, count : 0},
-            {id : 30, fruit : 'ginger',status:false, image : ginger, mp3 : gingerSound, count : 0},
+            // {id : 6, fruit : 'raspberries',status:false, image : raspberries, mp3 : raspberriesSound, count : 0},
+            // {id : 7, fruit : 'pepper',status:false, image : pepper, mp3 : pepperSound, count : 0},
+            // {id : 8, fruit : 'apricot',  status:false, image : apricot, mp3 : apricotSound, count : 0},
+            // {id : 9, fruit : 'banana',status:false, image : banana, mp3 : bananaSound, count : 0},
+            // {id : 10, fruit : 'pistachio',  status:false, image : pistachio, mp3 : pistachioSound, count : 0},            
+            // {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
+            // {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
+            // {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
+            // {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
+            // {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
+            // {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
+            // {id : 17, fruit : 'corn',status:false, image : corn, mp3 : cornSound, count : 0},
+            // {id : 18, fruit : 'guarana',status:false, image : guarana, mp3 : guaranaSound, count : 0},
+            // {id : 19, fruit : 'kiwi',status:false, image : kiwi, mp3 : kiwiSound, count : 0},
+            // {id : 20, fruit : 'cabbage',status:false, image : cabbage, mp3 : cabbageSound, count : 0},
+            // {id : 21, fruit : 'chickpea',status:false, image : chickpea, mp3 : chickpeaSound, count : 0},
+            // {id : 22, fruit : 'beetroot',status:false, image : beetroot, mp3 : beetrootSound, count : 0},
+            // {id : 23, fruit : 'beans',status:false, image : beans, mp3 : beansSound, count : 0},
+            // {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound, count : 0},
+            // {id : 25, fruit : 'potato',status:false, image : potato, mp3 : potatoSound, count : 0},
+            // {id : 26, fruit : 'melon',status:false, image : melon, mp3 : melonSound, count : 0},
+            // {id : 27, fruit : 'grapefruit',status:false, image : grapefruit, mp3 : grapefruitSound, count : 0},
+            // {id : 28, fruit : 'blackberry',status:false, image : blackberry, mp3 : blackberrySound, count : 0},
+            // {id : 29, fruit : 'lettuce',status:false, image : lettuce, mp3 : lettuceSound, count : 0},
+            // {id : 30, fruit : 'ginger',status:false, image : ginger, mp3 : gingerSound, count : 0},
             
           ]
           
@@ -130,6 +130,24 @@ export default class FruitStore{
                 let index = fruitRandom(arr.length)                
                 let arrId = arr[index]                 
                 this._currentFruit = arrId
+
+                ///---------------------------
+                this._fruits = this.fruits.map(fru => {
+                    if(fru.id !== id) return fru
+
+                    fru = {...fru, count : fru.count + 1}
+
+                    if(fru.count >= 2){
+                        fru = {...fru, status : true}
+                        return fru
+                    }
+
+                return fru
+                })
+
+                this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
+                this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse))
+                  ///---------------------------
                 return
             } 
             
@@ -138,10 +156,8 @@ export default class FruitStore{
             {                
                 let arr = []                                 
                 for(let i =0 ; i < this._fruitsStatusFalse.length; i++){                                                
-                    let tempIdFalse = this._fruitsStatusFalse[i].id                          
-                    
-                        let result = this._fruitsDisplay.find(item => item.id === tempIdFalse)
-    
+                    let tempIdFalse = this._fruitsStatusFalse[i].id                      
+                        let result = this._fruitsDisplay.find(item => item.id === tempIdFalse)    
                         if(result === undefined){
                             arr.push(tempIdFalse)
                         }                        
@@ -154,9 +170,25 @@ export default class FruitStore{
     
                 index = fruitRandom(this._fruitsDisplay.length)
                 arrId = this._fruitsDisplay[index]            
-                newFruit = this._fruitsDisplay.find(item => item.fruit === arrId.fruit)
-                console.log(newFruit.fruit)                    
+                newFruit = this._fruitsDisplay.find(item => item.fruit === arrId.fruit)                                 
                 this._currentFruit = newFruit
+                                ///---------------------------
+                                // this._fruits = this.fruits.map(fru => {
+                                //     if(fru.id !== id) return fru
+                
+                                //     fru = {...fru, count : fru.count + 1}
+                
+                                //     if(fru.count >= 2){
+                                //         fru = {...fru, status : true}
+                                //         return fru
+                                //     }
+                
+                                // return fru
+                                // })
+                
+                                // this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
+                                // this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse))
+                                  ///---------------------------
     
             } else {
                 console.log('false')
