@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { displayFruits, setStatusTrue, getFruitRandom } from "../utils";
+import { displayFruits, setStatusTrue, getFruitRandom, fruitRandom } from "../utils";
 
 import tomato from '../static/images/tomato.png' 
 import watermelon from '../static/images/watermelon.png' 
@@ -174,6 +174,21 @@ export default class FruitStore{
         get fruits(){
             return this._fruits    
         }
+
+        rebootGame(){
+            this._fruits = this._fruits.map(item => {
+                let setItemFalse = {...item, status : false}
+                return setItemFalse
+            })
+
+            this.setFruitsStatusFalse(this._fruits)
+            //this.setFruitsDisplay(displayFruits(this._fruitsStatusFalse))
+            
+            let display = displayFruits(this.fruitsStatusFalse)
+            this.setFruitsDisplay(display)
+            let index = fruitRandom(this.fruitsDisplay.length)
+            this.setCurrentFruit(null)              
+        }        
 
         get fruitsStatusFalse(){
             return this._fruitsStatusFalse

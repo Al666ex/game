@@ -13,10 +13,11 @@ const App = observer(() => {
   const {fruits} = useContext(AppContext)
   const [start, setStart] = useState(false)
   const [fetching, loading, error] = useFetch(() => {
-    fruits.setFruitsStatusFalse(fruits.fruits)
-    fruits.setFruitsDisplay(displayFruits(fruits.fruitsStatusFalse))
-    let index = fruitRandom(fruits.fruitsDisplay.length)
-    fruits.setCurrentFruit(null)    
+    fruits.rebootGame()
+    // fruits.setFruitsStatusFalse(fruits.fruits)
+    // fruits.setFruitsDisplay(displayFruits(fruits.fruitsStatusFalse))
+    // let index = fruitRandom(fruits.fruitsDisplay.length)
+    // fruits.setCurrentFruit(null)    
   })
 
   useEffect(() => {
