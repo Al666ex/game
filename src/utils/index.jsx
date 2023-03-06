@@ -1,6 +1,12 @@
 
 export const fruitRandom = (n) => Math.floor(Math.random() * (n)) 
 
+export const getFruitRandom = (arr) => {
+    let index = fruitRandom(arr.length)
+    let arrId = arr[index]   
+    return arrId
+}
+
 export const setStatusTrue = (arr, id) => {
     let result = arr.map(fru => {
         if(fru.id !== id) return fru

@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { fruitRandom, displayFruits, setStatusTrue } from "../utils";
+import { displayFruits, setStatusTrue, getFruitRandom } from "../utils";
 
 import tomato from '../static/images/tomato.png' 
 import watermelon from '../static/images/watermelon.png' 
@@ -83,9 +83,9 @@ export default class FruitStore{
             {id : 8, fruit : 'apricot',  status:false, image : apricot, mp3 : apricotSound, count : 0},
             {id : 9, fruit : 'banana',status:false, image : banana, mp3 : bananaSound, count : 0},
             {id : 10, fruit : 'pistachio',  status:false, image : pistachio, mp3 : pistachioSound, count : 0},            
-            // {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
-            // {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
-            // {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
+            {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
+            {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
+            {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
             // {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
             // {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
             // {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
@@ -119,27 +119,22 @@ export default class FruitStore{
 
         setCurrentFruit(id = null){ 
             if(id === null){
-                let index = fruitRandom(this._fruitsDisplay.length)
-                let arrId = this._fruitsDisplay[index]                    
+                let arrId = getFruitRandom(this._fruitsDisplay)        
                 this._currentFruit = arrId
             }       
             
             if(this._fruitsStatusFalse.length <= 6 && id === this._currentFruit.id){
                 let arr = []                  
                 arr = this._fruitsDisplay.filter(item => item.id !== id)                
-                let index = fruitRandom(arr.length)                
-                let arrId = arr[index]                 
+                let arrId = getFruitRandom(arr)                  
                 this._currentFruit = arrId
 
-                ///---------------------------
                 this._fruits = setStatusTrue(this._fruits,id)
-
                 this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
                 this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse))
-                  ///---------------------------
+                  
                 return
-            } 
-            
+            }             
 
             if(id === this._currentFruit.id) 
             {                
@@ -152,19 +147,16 @@ export default class FruitStore{
                         }                        
                 }
                 
-                let index = fruitRandom(arr.length)
-                let arrId = arr[index]            
+                let arrId = getFruitRandom(arr)          
                 let newFruit = this._fruitsStatusFalse.find(item => item.id === arrId)            
                 this._fruitsDisplay = this._fruitsDisplay.map(item => item.id === id ? newFruit : item)
 
                 this._fruits = setStatusTrue(this._fruits,id)
                 this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)           
     
-                index = fruitRandom(this._fruitsDisplay.length)
-                arrId = this._fruitsDisplay[index]            
+                arrId = getFruitRandom(this._fruitsDisplay)         
                 newFruit = this._fruitsDisplay.find(item => item.fruit === arrId.fruit)                                 
                 this._currentFruit = newFruit
-
     
             } else {
                 console.log('false')
