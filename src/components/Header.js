@@ -1,14 +1,12 @@
 import { observer } from "mobx-react-lite"
-import { useContext, useEffect, useRef, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { AppContext } from "../context"
-import ReactAudioPlayer from 'react-audio-player';
 
 const Header = observer(() => {
     const {fruits} = useContext(AppContext)
     const {fruit, mp3} = fruits.currentFruit      
-    const ref = useRef(null)
     const [chack, setCheck] = useState(fruits.currentFruit )        
-    //const [play, setPlay] = useState( typeof Audio !== "undefined" && new Audio(mp3)); //this will prevent rendering errors on NextJS since NodeJs doesn't recognise HTML tags neither its libs.
+    //const [play, setPlay] = useState( typeof Audio !== "undefined" && new Audio(mp3)); 
 
     useEffect(() => {
         autoPlayFunc()
@@ -29,10 +27,6 @@ const Header = observer(() => {
             
             <div className="fruit" >            
                 <div className="fruit_word" onClick={autoPlayFunc}> {fruit} </div>
-                <ReactAudioPlayer
-                    src={chack.mp3}
-                    autoPlay                    
-                />
             </div>
         </div>
     )

@@ -114,7 +114,7 @@ export default class FruitStore{
         }
 
         get currentFruit(){
-            return this._currentFruit
+            return this._currentFruit || null
         }
 
         setCurrentFruit(id = null){ 
