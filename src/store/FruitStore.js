@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { fruitRandom, displayFruits } from "../utils";
+import { fruitRandom, displayFruits, setStatusTrue } from "../utils";
 
 import tomato from '../static/images/tomato.png' 
 import watermelon from '../static/images/watermelon.png' 
@@ -77,12 +77,12 @@ export default class FruitStore{
             {id : 2, fruit : 'watermelon', status:false, image : watermelon, mp3 : watermelonSound, count : 0},
             {id : 3, fruit : 'pomegranate',  status:false, image : pomegranate, mp3 : pomegranateSound, count : 0},
             {id : 4, fruit : 'walnut',status:false, image : walnut, mp3 : walnutSound, count : 0},
-            {id : 5, fruit : 'currant',  status:true, image : currant, mp3 : currantSound, count : 0},
-            // {id : 6, fruit : 'raspberries',status:false, image : raspberries, mp3 : raspberriesSound, count : 0},
-            // {id : 7, fruit : 'pepper',status:false, image : pepper, mp3 : pepperSound, count : 0},
-            // {id : 8, fruit : 'apricot',  status:false, image : apricot, mp3 : apricotSound, count : 0},
-            // {id : 9, fruit : 'banana',status:false, image : banana, mp3 : bananaSound, count : 0},
-            // {id : 10, fruit : 'pistachio',  status:false, image : pistachio, mp3 : pistachioSound, count : 0},            
+            {id : 5, fruit : 'currant',  status:false, image : currant, mp3 : currantSound, count : 0},
+            {id : 6, fruit : 'raspberries',status:false, image : raspberries, mp3 : raspberriesSound, count : 0},
+            {id : 7, fruit : 'pepper',status:false, image : pepper, mp3 : pepperSound, count : 0},
+            {id : 8, fruit : 'apricot',  status:false, image : apricot, mp3 : apricotSound, count : 0},
+            {id : 9, fruit : 'banana',status:false, image : banana, mp3 : bananaSound, count : 0},
+            {id : 10, fruit : 'pistachio',  status:false, image : pistachio, mp3 : pistachioSound, count : 0},            
             // {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
             // {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
             // {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
@@ -132,18 +132,7 @@ export default class FruitStore{
                 this._currentFruit = arrId
 
                 ///---------------------------
-                this._fruits = this.fruits.map(fru => {
-                    if(fru.id !== id) return fru
-
-                    fru = {...fru, count : fru.count + 1}
-
-                    if(fru.count >= 2){
-                        fru = {...fru, status : true}
-                        return fru
-                    }
-
-                return fru
-                })
+                this._fruits = setStatusTrue(this._fruits,id)
 
                 this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
                 this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse))
@@ -167,28 +156,15 @@ export default class FruitStore{
                 let arrId = arr[index]            
                 let newFruit = this._fruitsStatusFalse.find(item => item.id === arrId)            
                 this._fruitsDisplay = this._fruitsDisplay.map(item => item.id === id ? newFruit : item)
+
+                this._fruits = setStatusTrue(this._fruits,id)
+                this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)           
     
                 index = fruitRandom(this._fruitsDisplay.length)
                 arrId = this._fruitsDisplay[index]            
                 newFruit = this._fruitsDisplay.find(item => item.fruit === arrId.fruit)                                 
                 this._currentFruit = newFruit
-                                ///---------------------------
-                                // this._fruits = this.fruits.map(fru => {
-                                //     if(fru.id !== id) return fru
-                
-                                //     fru = {...fru, count : fru.count + 1}
-                
-                                //     if(fru.count >= 2){
-                                //         fru = {...fru, status : true}
-                                //         return fru
-                                //     }
-                
-                                // return fru
-                                // })
-                
-                                // this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
-                                // this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse))
-                                  ///---------------------------
+
     
             } else {
                 console.log('false')

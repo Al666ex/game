@@ -1,6 +1,23 @@
 
 export const fruitRandom = (n) => Math.floor(Math.random() * (n)) 
 
+export const setStatusTrue = (arr, id) => {
+    let result = arr.map(fru => {
+        if(fru.id !== id) return fru
+
+        fru = {...fru, count : fru.count + 1}
+
+        if(fru.count >= 2){
+            fru = {...fru, status : true}
+            return fru
+        }
+
+    return fru
+    })
+
+    return result
+}
+
 export const displayFruits = (arr) => {
     if(arr.length <= 0)return null
     if(arr.length <= 6)return arr
