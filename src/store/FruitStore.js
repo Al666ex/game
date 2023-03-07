@@ -31,6 +31,17 @@ import grapefruit from '../static/images/grapefruit.png'
 import blackberry from '../static/images/blackberry.png'
 import lettuce from '../static/images/lettuce.png'
 import ginger from '../static/images/ginger.png'
+import strawberry from '../static/images/strawberry.png'
+import spinach from '../static/images/spinach.png'
+import rosehip from '../static/images/rosehip.png'
+import radish from '../static/images/radish.png'
+import quince from '../static/images/quince.png'
+import plum from '../static/images/plum.png'
+import persimmon from '../static/images/persimmon.png'
+import peas from '../static/images/peas.png'
+import pear from '../static/images/pear.png'
+
+
 
 
 //
@@ -65,10 +76,15 @@ import grapefruitSound from '../static/mp3/grapefruit.mp3'
 import blackberrySound from '../static/mp3/blackberry.mp3'
 import lettuceSound from '../static/mp3/lettuce.mp3'
 import gingerSound from '../static/mp3/ginger.mp3'
-
-
-
-// import pearSound from '../static/mp3/pear.mp3';
+import strawberrySound from '../static/mp3/strawberry.mp3'
+import spinachSound from '../static/mp3/spinach.mp3'
+import rosehipSound from '../static/mp3/rosehip.mp3'
+import radishSound from '../static/mp3/radish.mp3'
+import quinceSound from '../static/mp3/quince.mp3'
+import plumSound from '../static/mp3/plum.mp3'
+import persimmonSound from '../static/mp3/persimmon.mp3'
+import peasSound from '../static/mp3/peas.mp3'
+import pearSound from '../static/mp3/pear.mp3';
 
 export default class FruitStore{
     constructor(){
@@ -86,23 +102,32 @@ export default class FruitStore{
             {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
             {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
             {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
-            // {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
-            // {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
-            // {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
-            // {id : 17, fruit : 'corn',status:false, image : corn, mp3 : cornSound, count : 0},
-            // {id : 18, fruit : 'guarana',status:false, image : guarana, mp3 : guaranaSound, count : 0},
-            // {id : 19, fruit : 'kiwi',status:false, image : kiwi, mp3 : kiwiSound, count : 0},
-            // {id : 20, fruit : 'cabbage',status:false, image : cabbage, mp3 : cabbageSound, count : 0},
-            // {id : 21, fruit : 'chickpea',status:false, image : chickpea, mp3 : chickpeaSound, count : 0},
-            // {id : 22, fruit : 'beetroot',status:false, image : beetroot, mp3 : beetrootSound, count : 0},
-            // {id : 23, fruit : 'beans',status:false, image : beans, mp3 : beansSound, count : 0},
-            // {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound, count : 0},
-            // {id : 25, fruit : 'potato',status:false, image : potato, mp3 : potatoSound, count : 0},
-            // {id : 26, fruit : 'melon',status:false, image : melon, mp3 : melonSound, count : 0},
-            // {id : 27, fruit : 'grapefruit',status:false, image : grapefruit, mp3 : grapefruitSound, count : 0},
-            // {id : 28, fruit : 'blackberry',status:false, image : blackberry, mp3 : blackberrySound, count : 0},
-            // {id : 29, fruit : 'lettuce',status:false, image : lettuce, mp3 : lettuceSound, count : 0},
-            // {id : 30, fruit : 'ginger',status:false, image : ginger, mp3 : gingerSound, count : 0},
+            {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
+            {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
+            {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
+            {id : 17, fruit : 'corn',status:false, image : corn, mp3 : cornSound, count : 0},
+            {id : 18, fruit : 'guarana',status:false, image : guarana, mp3 : guaranaSound, count : 0},
+            {id : 19, fruit : 'kiwi',status:false, image : kiwi, mp3 : kiwiSound, count : 0},
+            {id : 20, fruit : 'cabbage',status:false, image : cabbage, mp3 : cabbageSound, count : 0},
+            {id : 21, fruit : 'chickpea',status:false, image : chickpea, mp3 : chickpeaSound, count : 0},
+            {id : 22, fruit : 'beetroot',status:false, image : beetroot, mp3 : beetrootSound, count : 0},
+            {id : 23, fruit : 'beans',status:false, image : beans, mp3 : beansSound, count : 0},
+            {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound, count : 0},
+            {id : 25, fruit : 'potato',status:false, image : potato, mp3 : potatoSound, count : 0},
+            {id : 26, fruit : 'melon',status:false, image : melon, mp3 : melonSound, count : 0},
+            {id : 27, fruit : 'grapefruit',status:false, image : grapefruit, mp3 : grapefruitSound, count : 0},
+            {id : 28, fruit : 'blackberry',status:false, image : blackberry, mp3 : blackberrySound, count : 0},
+            {id : 29, fruit : 'lettuce',status:false, image : lettuce, mp3 : lettuceSound, count : 0},
+            {id : 30, fruit : 'ginger',status:false, image : ginger, mp3 : gingerSound, count : 0},
+            {id : 31, fruit : 'strawberry',status:false, image : strawberry, mp3 : strawberrySound, count : 0},
+            {id : 32, fruit : 'spinach',status:false, image : spinach, mp3 : spinachSound, count : 0},
+            {id : 33, fruit : 'rosehip',status:false, image : rosehip, mp3 : rosehipSound, count : 0},
+            {id : 34, fruit : 'radish',status:false, image : radish, mp3 : radishSound, count : 0},
+            {id : 35, fruit : 'quince',status:false, image : quince, mp3 : quinceSound, count : 0},
+            {id : 36, fruit : 'plum',status:false, image : plum, mp3 : plumSound, count : 0},
+            {id : 37, fruit : 'persimmon',status:false, image : persimmon, mp3 : persimmonSound, count : 0},
+            {id : 38, fruit : 'peas',status:false, image : peas, mp3 : peasSound, count : 0},
+            {id : 39, fruit : 'pear',status:false, image : pear, mp3 : pearSound, count : 0}
             
           ]
           
