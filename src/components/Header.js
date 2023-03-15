@@ -1,12 +1,10 @@
 import { observer } from "mobx-react-lite"
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { AppContext } from "../context"
 
 const Header = observer(() => {
     const {fruits} = useContext(AppContext)
-    const {fruit, mp3} = fruits.currentFruit      
-    const [chack, setCheck] = useState(fruits.currentFruit )        
-    //const [play, setPlay] = useState( typeof Audio !== "undefined" && new Audio(mp3)); 
+    const {fruit, mp3} = fruits.currentFruit              
 
     useEffect(() => {
         autoPlayFunc()

@@ -1,58 +1,47 @@
 
-export const fruitRandom = (n) => Math.floor(Math.random() * (n)) 
+export const random = (n) => Math.floor(Math.random() * (n)) 
 
-export const getFruitRandom = (arr) => {
-    let index = fruitRandom(arr.length)
-    let arrId = arr[index]   
-    return arrId
+export const getFruitRandom = (fruits) => {
+    let index = random(fruits.length)
+    let fruit = fruits[index]   
+    return fruit
 }
 
-export const setStatusTrue = (arr, id) => {
-    let result = arr.map(fru => {
+export const setStatusTrue = (fruits, id) => 
+    fruits.map(fru => {
         if(fru.id !== id) return fru
+        const count = fru.count + 1
+        return {...fru, count, status : count >= 2}               
+    })    
 
-        fru = {...fru, count : fru.count + 1}
 
-        if(fru.count >= 2){
-            fru = {...fru, status : true}
-            return fru
-        }
-
-    return fru
-    })
-
-    return result
-}
-
-export const displayFruits = (arr) => {
-    if(arr.length <= 0)return null
-    if(arr.length <= 6)return arr
+export const displayFruits = (fruitsStatusFalse) => {
+    if(fruitsStatusFalse.length <= 0)return null
+    if(fruitsStatusFalse.length <= 6)return fruitsStatusFalse
     let count = 0
-    let displayArr = []         
+    let displayFruits = []         
 
     while(count < 6){
         count++
-        displayArr =selectFruits(arr, displayArr)
+        displayFruits =selectFruits(fruitsStatusFalse, displayFruits)
     }
-    return displayArr
+    return displayFruits
 }
 
-function selectFruits(arr, displayArr){
+function selectFruits(fruitsStatusFalse, displayFruits){
     let goodfruit = false    
     let index = null
     do{
-        index = fruitRandom(arr.length)
-        let fruit = arr[index]
-        let searchFruit = displayArr.find(item => item.id === fruit.id)
+        index = random(fruitsStatusFalse.length)
+        let fruit = fruitsStatusFalse[index]
+        let searchFruit = displayFruits.find(item => item.id === fruit.id)
         if(searchFruit === undefined){
             goodfruit = true
-            displayArr[displayArr.length] = fruit        
+            displayFruits[displayFruits.length] = fruit        
         }
     }
-    while(!goodfruit)
-    
-    return displayArr
-
+    while(!goodfruit)    
+    return displayFruits
 }
 
 

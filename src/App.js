@@ -7,7 +7,6 @@ import Listfruits from './components/Listfruits';
 import { observer } from 'mobx-react-lite';
 import StartEnd from './components/StartEnd';
 
-
 const App = observer(() => {
   const {fruits} = useContext(AppContext)
   const [start, setStart] = useState(false)

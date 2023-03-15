@@ -4,7 +4,6 @@ import { AppContext } from '../context'
 import { useContext } from 'react'
 import winner from '../static/mp3/winner.mp3'
 
-
 const StartEnd = observer(({msg, onClick, start}) => {
     const {fruits} = useContext(AppContext)
 

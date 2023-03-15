@@ -6,8 +6,7 @@ import { observer } from 'mobx-react-lite';
 const Fruit = observer(({item}) => {
     const [disabled, setDisabled] = useState(false)
     const { fruits } = useContext(AppContext)         
-    const {id, fruit, image, mp3} = item        
-    const [play, setPlay] = useState(new Audio(mp3))
+    const {id, fruit, image, mp3} = item            
     const rootClasses = ['ani']
 
     if(disabled){
@@ -15,14 +14,12 @@ const Fruit = observer(({item}) => {
     }
 
     useEffect(() => {
-        setDisabled(false)
-    
+        setDisabled(false)    
     },[fruits.currentFruit])
 
     const update = () => {                        
         fruits.setCurrentFruit(id)                
-        setDisabled(true)    
-        //console.log('useEffect from Fruit')            
+        setDisabled(true)            
     }
 
     return(

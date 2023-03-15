@@ -1,6 +1,5 @@
 import Fruit from "./Fruit";
 import { observer } from "mobx-react-lite";
-//import { useContext,  useRef } from "react";
 import { useContext} from "react";
 import { AppContext } from "../context";
 import Header from "./Header";

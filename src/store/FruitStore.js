@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { displayFruits, setStatusTrue, getFruitRandom, fruitRandom } from "../utils";
+import { displayFruits, setStatusTrue, getFruitRandom } from "../utils";
 
 import tomato from '../static/images/tomato.png' 
 import watermelon from '../static/images/watermelon.png' 
@@ -13,38 +13,12 @@ import banana from '../static/images/banana.png';
 import pistachio from '../static/images/pistachio.png';
 import onion from '../static/images/onion.png'
 import zucchini from '../static/images/zucchini.png'
-import mandarin from '../static/images/mandarin.png'
-import horseradish from '../static/images/horseradish.png'
-import lemon from '../static/images/lemon.png'
-import garlic from '../static/images/garlic.png'
-import corn from '../static/images/corn.png'
-import guarana from '../static/images/guarana.png'
-import kiwi from '../static/images/kiwi.png'
-import cabbage from '../static/images/cabbage.png'
-import chickpea from '../static/images/chickpea.png'
-import beetroot from '../static/images/beetroot.png'
-import beans from '../static/images/beans.png'
-import cauliflower from '../static/images/cauliflower.png'
-import potato from '../static/images/potato.png'
-import melon from '../static/images/melon.png'
-import grapefruit from '../static/images/grapefruit.png'
-import blackberry from '../static/images/blackberry.png'
-import lettuce from '../static/images/lettuce.png'
-import ginger from '../static/images/ginger.png'
-import strawberry from '../static/images/strawberry.png'
-import spinach from '../static/images/spinach.png'
-import rosehip from '../static/images/rosehip.png'
-import radish from '../static/images/radish.png'
-import quince from '../static/images/quince.png'
-import plum from '../static/images/plum.png'
-import persimmon from '../static/images/persimmon.png'
-import peas from '../static/images/peas.png'
-import pear from '../static/images/pear.png'
+// import mandarin from '../static/images/mandarin.png'
+// import horseradish from '../static/images/horseradish.png'
+// import lemon from '../static/images/lemon.png'
+// import garlic from '../static/images/garlic.png'
+// import corn from '../static/images/corn.png'
 
-
-
-
-//
 
 import tomatoSound from '../static/mp3/tomato.mp3' 
 import watermelonSound from '../static/mp3/watermelon.mp3' 
@@ -58,33 +32,13 @@ import bananaSound from '../static/mp3/banana.mp3';
 import pistachioSound from '../static/mp3/pistachio.mp3';
 import onionSound from '../static/mp3/onion.mp3'
 import zucchiniSound from '../static/mp3/zucchini.mp3'
-import mandarinSound from '../static/mp3/mandarin.mp3'
-import horseradishSound from '../static/mp3/horseradish.mp3'
-import lemonSound from '../static/mp3/lemon.mp3'
-import garlicSound from '../static/mp3/garlic.mp3'
-import cornSound from '../static/mp3/corn.mp3'
-import guaranaSound from '../static/mp3/guarana.mp3'
-import kiwiSound from '../static/mp3/kiwi.mp3'
-import cabbageSound from '../static/mp3/cabbage.mp3'
-import chickpeaSound from '../static/mp3/chickpea.mp3'
-import beetrootSound from '../static/mp3/beetroot.mp3'
-import beansSound from '../static/mp3/beans.mp3'
-import cauliflowerSound from '../static/mp3/cauliflower.mp3'
-import potatoSound from '../static/mp3/potato.mp3'
-import melonSound from '../static/mp3/melon.mp3'
-import grapefruitSound from '../static/mp3/grapefruit.mp3'
-import blackberrySound from '../static/mp3/blackberry.mp3'
-import lettuceSound from '../static/mp3/lettuce.mp3'
-import gingerSound from '../static/mp3/ginger.mp3'
-import strawberrySound from '../static/mp3/strawberry.mp3'
-import spinachSound from '../static/mp3/spinach.mp3'
-import rosehipSound from '../static/mp3/rosehip.mp3'
-import radishSound from '../static/mp3/radish.mp3'
-import quinceSound from '../static/mp3/quince.mp3'
-import plumSound from '../static/mp3/plum.mp3'
-import persimmonSound from '../static/mp3/persimmon.mp3'
-import peasSound from '../static/mp3/peas.mp3'
-import pearSound from '../static/mp3/pear.mp3';
+
+// import mandarinSound from '../static/mp3/mandarin.mp3'
+// import horseradishSound from '../static/mp3/horseradish.mp3'
+// import lemonSound from '../static/mp3/lemon.mp3'
+// import garlicSound from '../static/mp3/garlic.mp3'
+// import cornSound from '../static/mp3/corn.mp3'
+
 
 export default class FruitStore{
     constructor(){
@@ -106,28 +60,6 @@ export default class FruitStore{
             // {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
             // {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
             // {id : 17, fruit : 'corn',status:false, image : corn, mp3 : cornSound, count : 0},
-            // {id : 18, fruit : 'guarana',status:false, image : guarana, mp3 : guaranaSound, count : 0},
-            // {id : 19, fruit : 'kiwi',status:false, image : kiwi, mp3 : kiwiSound, count : 0},
-            // {id : 20, fruit : 'cabbage',status:false, image : cabbage, mp3 : cabbageSound, count : 0},
-            // {id : 21, fruit : 'chickpea',status:false, image : chickpea, mp3 : chickpeaSound, count : 0},
-            // {id : 22, fruit : 'beetroot',status:false, image : beetroot, mp3 : beetrootSound, count : 0},
-            // {id : 23, fruit : 'beans',status:false, image : beans, mp3 : beansSound, count : 0},
-            // {id : 24, fruit : 'cauliflower',status:false, image : cauliflower, mp3 : cauliflowerSound, count : 0},
-            // {id : 25, fruit : 'potato',status:false, image : potato, mp3 : potatoSound, count : 0},
-            // {id : 26, fruit : 'melon',status:false, image : melon, mp3 : melonSound, count : 0},
-            // {id : 27, fruit : 'grapefruit',status:false, image : grapefruit, mp3 : grapefruitSound, count : 0},
-            // {id : 28, fruit : 'blackberry',status:false, image : blackberry, mp3 : blackberrySound, count : 0},
-            // {id : 29, fruit : 'lettuce',status:false, image : lettuce, mp3 : lettuceSound, count : 0},
-            // {id : 30, fruit : 'ginger',status:false, image : ginger, mp3 : gingerSound, count : 0},
-            // {id : 31, fruit : 'strawberry',status:false, image : strawberry, mp3 : strawberrySound, count : 0},
-            // {id : 32, fruit : 'spinach',status:false, image : spinach, mp3 : spinachSound, count : 0},
-            // {id : 33, fruit : 'rosehip',status:false, image : rosehip, mp3 : rosehipSound, count : 0},
-            // {id : 34, fruit : 'radish',status:false, image : radish, mp3 : radishSound, count : 0},
-            // {id : 35, fruit : 'quince',status:false, image : quince, mp3 : quinceSound, count : 0},
-            // {id : 36, fruit : 'plum',status:false, image : plum, mp3 : plumSound, count : 0},
-            // {id : 37, fruit : 'persimmon',status:false, image : persimmon, mp3 : persimmonSound, count : 0},
-            // {id : 38, fruit : 'peas',status:false, image : peas, mp3 : peasSound, count : 0},
-            // {id : 39, fruit : 'pear',status:false, image : pear, mp3 : pearSound, count : 0}
             
           ]
           
@@ -139,20 +71,18 @@ export default class FruitStore{
         }
 
         get currentFruit(){
-            return this._currentFruit || null
+            return this._currentFruit 
         }
 
         setCurrentFruit(id = null){ 
-            if(id === null){
-                let arrId = getFruitRandom(this._fruitsDisplay)        
-                this._currentFruit = arrId
+            if(id === null){                
+                this._currentFruit = getFruitRandom(this._fruitsDisplay)
             }       
             
             if(this._fruitsStatusFalse.length <= 6 && id === this._currentFruit.id){
-                let arr = []                  
-                arr = this._fruitsDisplay.filter(item => item.id !== id)                
-                let arrId = getFruitRandom(arr)                  
-                this._currentFruit = arrId
+                let fruits = []                  
+                fruits = this._fruitsDisplay.filter(item => item.id !== id)                                
+                this._currentFruit = getFruitRandom(fruits)
 
                 this._fruits = setStatusTrue(this._fruits,id)
                 this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
@@ -163,29 +93,27 @@ export default class FruitStore{
 
             if(id === this._currentFruit.id) 
             {                
-                let arr = []                                 
+                let fruits = []                                 
                 for(let i =0 ; i < this._fruitsStatusFalse.length; i++){                                                
                     let tempIdFalse = this._fruitsStatusFalse[i].id                      
                         let result = this._fruitsDisplay.find(item => item.id === tempIdFalse)    
                         if(result === undefined){
-                            arr.push(tempIdFalse)
+                            fruits.push(tempIdFalse)
                         }                        
                 }
                 
-                let arrId = getFruitRandom(arr)          
-                let newFruit = this._fruitsStatusFalse.find(item => item.id === arrId)            
+                let fruit = getFruitRandom(fruits)                
+                
+                let newFruit = this._fruitsStatusFalse.find(item => item.id === fruit)            
                 this._fruitsDisplay = this._fruitsDisplay.map(item => item.id === id ? newFruit : item)
 
                 this._fruits = setStatusTrue(this._fruits,id)
                 this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)           
     
-                arrId = getFruitRandom(this._fruitsDisplay)         
-                newFruit = this._fruitsDisplay.find(item => item.fruit === arrId.fruit)                                 
-                this._currentFruit = newFruit
-    
-            } else {
-                console.log('false')
-            }                
+                fruit = getFruitRandom(this._fruitsDisplay)         
+                newFruit = this._fruitsDisplay.find(item => item.fruit === fruit.fruit)                                 
+                this._currentFruit = newFruit    
+            } 
         }
         
         get fruitsDisplay(){
@@ -202,16 +130,12 @@ export default class FruitStore{
 
         rebootGame(){
             this._fruits = this._fruits.map(item => {
-                let setItemFalse = {...item, status : false, count : 0}
-                return setItemFalse
+                return {...item, status : false, count : 0}                
             })
 
-            this.setFruitsStatusFalse(this._fruits)
-            //this.setFruitsDisplay(displayFruits(this._fruitsStatusFalse))
-            
+            this.setFruitsStatusFalse(this._fruits)            
             let display = displayFruits(this.fruitsStatusFalse)
-            this.setFruitsDisplay(display)
-            let index = fruitRandom(this.fruitsDisplay.length)
+            this.setFruitsDisplay(display)            
             this.setCurrentFruit(null)              
         }        
 
@@ -221,10 +145,7 @@ export default class FruitStore{
 
         setFruitsStatusFalse(arr){            
             this._fruitsStatusFalse = arr.filter(fruit => fruit.status === false)
-        }
-
-
-        //this.onChange = (id, background) => setFruits(fruits.map(item => item.id === id ? {...item, background} : item))
+        }        
  
 }
 
