@@ -1,17 +1,17 @@
-import { observer } from "mobx-react-lite"
-import { useContext, useEffect } from "react"
-import { AppContext } from "../context"
+import { observer } from "mobx-react-lite";
+import { useContext, useEffect } from "react";
+import { AppContext } from "../context";
 
 const Header = observer(() => {
-    const {fruits} = useContext(AppContext)
-    const {fruit, mp3} = fruits.currentFruit              
+    const {fruits} = useContext(AppContext);
+    const {fruit, mp3} = fruits.currentFruit;            
 
     useEffect(() => {
-        autoPlayFunc()
+        autoPlayFunc();
     },[fruit])
 
     const autoPlayFunc = (e) => {            
-            new Audio(mp3).play()   
+            new Audio(mp3).play();   
     }    
 
     return (

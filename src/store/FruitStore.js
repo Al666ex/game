@@ -1,28 +1,27 @@
 import { makeAutoObservable } from "mobx";
 import { displayFruits, setStatusTrue, getFruitRandom } from "../utils";
 
-import tomato from '../static/images/tomato.png' 
-import watermelon from '../static/images/watermelon.png' 
-import pomegranate from '../static/images/pomegranate.png'
+import tomato from '../static/images/tomato.png';
+import watermelon from '../static/images/watermelon.png'; 
+import pomegranate from '../static/images/pomegranate.png';
 import walnut from '../static/images/walnut.png';
-import currant from '../static/images/currant.png'
+import currant from '../static/images/currant.png';
 import raspberries from '../static/images/raspberries.png';
-import pepper from '../static/images/pepper.png'
+import pepper from '../static/images/pepper.png';
 import apricot from '../static/images/apricot.png';
 import banana from '../static/images/banana.png';
 import pistachio from '../static/images/pistachio.png';
-import onion from '../static/images/onion.png'
-import zucchini from '../static/images/zucchini.png'
-// import mandarin from '../static/images/mandarin.png'
-// import horseradish from '../static/images/horseradish.png'
-// import lemon from '../static/images/lemon.png'
-// import garlic from '../static/images/garlic.png'
-// import corn from '../static/images/corn.png'
+import onion from '../static/images/onion.png';
+import zucchini from '../static/images/zucchini.png';
+// import mandarin from '../static/images/mandarin.png';
+// import horseradish from '../static/images/horseradish.png';
+// import lemon from '../static/images/lemon.png';
+// import garlic from '../static/images/garlic.png';
 
 
-import tomatoSound from '../static/mp3/tomato.mp3' 
-import watermelonSound from '../static/mp3/watermelon.mp3' 
-import pomegranateSound from '../static/mp3/pomegranate.mp3'
+import tomatoSound from '../static/mp3/tomato.mp3'; 
+import watermelonSound from '../static/mp3/watermelon.mp3'; 
+import pomegranateSound from '../static/mp3/pomegranate.mp3';
 import walnutSound from '../static/mp3/walnut.mp3';
 import currantSound from '../static/mp3/currant.mp3'
 import raspberriesSound from '../static/mp3/raspberries.mp3';
@@ -30,15 +29,13 @@ import pepperSound from '../static/mp3/pepper.mp3'
 import apricotSound from '../static/mp3/apricot.mp3';
 import bananaSound from '../static/mp3/banana.mp3';
 import pistachioSound from '../static/mp3/pistachio.mp3';
-import onionSound from '../static/mp3/onion.mp3'
-import zucchiniSound from '../static/mp3/zucchini.mp3'
+import onionSound from '../static/mp3/onion.mp3';
+import zucchiniSound from '../static/mp3/zucchini.mp3';
 
 // import mandarinSound from '../static/mp3/mandarin.mp3'
 // import horseradishSound from '../static/mp3/horseradish.mp3'
 // import lemonSound from '../static/mp3/lemon.mp3'
 // import garlicSound from '../static/mp3/garlic.mp3'
-// import cornSound from '../static/mp3/corn.mp3'
-
 
 export default class FruitStore{
     constructor(){
@@ -59,7 +56,6 @@ export default class FruitStore{
             // {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
             // {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
             // {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
-            // {id : 17, fruit : 'corn',status:false, image : corn, mp3 : cornSound, count : 0},
             
           ]
           
@@ -71,80 +67,80 @@ export default class FruitStore{
         }
 
         get currentFruit(){
-            return this._currentFruit 
+            return this._currentFruit; 
         }
 
         setCurrentFruit(id = null){ 
             if(id === null){                
-                this._currentFruit = getFruitRandom(this._fruitsDisplay)
+                this._currentFruit = getFruitRandom(this._fruitsDisplay);
             }       
             
             if(this._fruitsStatusFalse.length <= 6 && id === this._currentFruit.id){
-                let fruits = []                  
-                fruits = this._fruitsDisplay.filter(item => item.id !== id)                                
-                this._currentFruit = getFruitRandom(fruits)
+                let fruits = [];               
+                fruits = this._fruitsDisplay.filter(item => item.id !== id);                                
+                this._currentFruit = getFruitRandom(fruits);
 
-                this._fruits = setStatusTrue(this._fruits,id)
-                this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)
-                this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse))
+                this._fruits = setStatusTrue(this._fruits,id);
+                this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false);
+                this._fruitsDisplay = (displayFruits(this._fruitsStatusFalse));
                   
                 return
             }             
 
             if(id === this._currentFruit.id) 
             {                
-                let fruits = []                                 
+                let fruits = [];                              
                 for(let i =0 ; i < this._fruitsStatusFalse.length; i++){                                                
-                    let tempIdFalse = this._fruitsStatusFalse[i].id                      
-                        let result = this._fruitsDisplay.find(item => item.id === tempIdFalse)    
+                    let tempIdFalse = this._fruitsStatusFalse[i].id;                      
+                        let result = this._fruitsDisplay.find(item => item.id === tempIdFalse);    
                         if(result === undefined){
-                            fruits.push(tempIdFalse)
+                            fruits.push(tempIdFalse);
                         }                        
                 }
                 
-                let fruit = getFruitRandom(fruits)                
+                let fruit = getFruitRandom(fruits);               
                 
-                let newFruit = this._fruitsStatusFalse.find(item => item.id === fruit)            
-                this._fruitsDisplay = this._fruitsDisplay.map(item => item.id === id ? newFruit : item)
+                let newFruit = this._fruitsStatusFalse.find(item => item.id === fruit);            
+                this._fruitsDisplay = this._fruitsDisplay.map(item => item.id === id ? newFruit : item);
 
-                this._fruits = setStatusTrue(this._fruits,id)
-                this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false)           
+                this._fruits = setStatusTrue(this._fruits,id);
+                this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false);           
     
-                fruit = getFruitRandom(this._fruitsDisplay)         
-                newFruit = this._fruitsDisplay.find(item => item.fruit === fruit.fruit)                                 
-                this._currentFruit = newFruit    
+                fruit = getFruitRandom(this._fruitsDisplay);         
+                newFruit = this._fruitsDisplay.find(item => item.fruit === fruit.fruit);                                 
+                this._currentFruit = newFruit;    
             } 
         }
         
         get fruitsDisplay(){
-            return this._fruitsDisplay
+            return this._fruitsDisplay;
         }
 
-        setFruitsDisplay(arr){
-            this._fruitsDisplay = arr
+        setFruitsDisplay(fruits){
+            this._fruitsDisplay = fruits;
         }
 
         get fruits(){
-            return this._fruits    
+            return this._fruits;    
         }
 
         rebootGame(){
             this._fruits = this._fruits.map(item => {
                 return {...item, status : false, count : 0}                
-            })
+            });
 
-            this.setFruitsStatusFalse(this._fruits)            
-            let display = displayFruits(this.fruitsStatusFalse)
-            this.setFruitsDisplay(display)            
-            this.setCurrentFruit(null)              
+            this.setFruitsStatusFalse(this._fruits);            
+            let display = displayFruits(this.fruitsStatusFalse);
+            this.setFruitsDisplay(display);
+            this.setCurrentFruit(null);         
         }        
 
         get fruitsStatusFalse(){
-            return this._fruitsStatusFalse
+            return this._fruitsStatusFalse;
         }
 
-        setFruitsStatusFalse(arr){            
-            this._fruitsStatusFalse = arr.filter(fruit => fruit.status === false)
+        setFruitsStatusFalse(fruits){            
+            this._fruitsStatusFalse = fruits.filter(fruit => fruit.status === false);
         }        
  
 }

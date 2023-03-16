@@ -8,26 +8,38 @@ import { observer } from 'mobx-react-lite';
 import StartEnd from './components/StartEnd';
 
 const App = observer(() => {
-  const {fruits} = useContext(AppContext)
-  const [start, setStart] = useState(false)
+  
+  const {fruits} = useContext(AppContext);
+  const [start, setStart] = useState(false);
   const [fetching, loading, error] = useFetch(async () => {
-    await fruits.rebootGame()  
+    await fruits.rebootGame();
   })
 
+  const startEnd = (msg) => <StartEnd msg={msg} onClick={setStart} start={start} />;  
+
   useEffect(() => {
-    fetching()
-  },[fruits])  
+    window.addEventListener("contextmenu", e => e.preventDefault());
+    return function(){
+      window.removeEventListener("contextmenu", e => e.preventDefault());
+    }
+  },[])
+
+  useEffect(() => {
+    fetching();
+  },[fruits]);  
+  
 
   return (
     <div className="App">
-      {!start ? <StartEnd msg='Start' onClick={setStart} start={start} /> :        
-        !loading && fruits.fruitsDisplay !== null ?             
-              <Listfruits  /> :            
-                <StartEnd msg='End' onClick={setStart} start={start} />
+      { !error ?
+        !start ? startEnd('Start')  :        
+          !loading && fruits.fruitsDisplay !== null ?             
+            <Listfruits  /> : 
+              startEnd('End') : <h1>Sorry something wrong </h1>
       }
 
     </div>
   );
-})
+});
 
 export default App;

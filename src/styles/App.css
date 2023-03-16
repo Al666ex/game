@@ -127,16 +127,17 @@ h1 span {
   /* padding: 10px; */
   }
 
-  .win{
-    background: url('../static/images/check.png');
-    background-size: cover;
-  }
-  
-  img{
-    width: 100%;
-    object-fit: cover;
-    background: transparent; 
-  }
+.win{
+  background: url('../static/images/check.png');
+  background-size: cover;
+}
+
+img{
+  width: 100%;
+  object-fit: cover;
+  background: transparent; 
+  pointer-events: none;
+}
 
   @keyframes anime{
     0%{
@@ -209,17 +210,7 @@ h1 span {
       /* background-color: rgba(128,128,128,0); */
       }
     h1 span {  
-      font-size: 30px;   
-    
-      /* padding: 10px; */
+      font-size: 30px;      
+      
       }    
   }
-
-  /* @media screen and (max-height: 401px),  
-  screen and (max-width: 400px){
-    h1 {      
-      left: 25%;
-      font-size: 20px;  
-    }
-  
-  } */

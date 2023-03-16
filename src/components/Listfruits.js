@@ -5,7 +5,7 @@ import { AppContext } from "../context";
 import Header from "./Header";
 
 const Listfruits = observer(() => {    
-    const {fruits} = useContext(AppContext)  
+    const {fruits} = useContext(AppContext);  
      
     return(
     <>
