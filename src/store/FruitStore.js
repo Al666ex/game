@@ -13,11 +13,10 @@ import banana from '../static/images/banana.png';
 import pistachio from '../static/images/pistachio.png';
 import onion from '../static/images/onion.png';
 import zucchini from '../static/images/zucchini.png';
-// import mandarin from '../static/images/mandarin.png';
-// import horseradish from '../static/images/horseradish.png';
-// import lemon from '../static/images/lemon.png';
-// import garlic from '../static/images/garlic.png';
 
+import mandarin from '../static/images/mandarin.png';
+
+//
 
 import tomatoSound from '../static/mp3/tomato.mp3'; 
 import watermelonSound from '../static/mp3/watermelon.mp3'; 
@@ -32,10 +31,9 @@ import pistachioSound from '../static/mp3/pistachio.mp3';
 import onionSound from '../static/mp3/onion.mp3';
 import zucchiniSound from '../static/mp3/zucchini.mp3';
 
-// import mandarinSound from '../static/mp3/mandarin.mp3'
-// import horseradishSound from '../static/mp3/horseradish.mp3'
-// import lemonSound from '../static/mp3/lemon.mp3'
-// import garlicSound from '../static/mp3/garlic.mp3'
+import mandarinSound from '../static/mp3/mandarin.mp3'
+
+
 
 export default class FruitStore{
     constructor(){
@@ -52,12 +50,12 @@ export default class FruitStore{
             {id : 10, fruit : 'pistachio',  status:false, image : pistachio, mp3 : pistachioSound, count : 0},            
             {id : 11, fruit : 'onion',status:false, image : onion, mp3 : onionSound, count : 0}, 
             {id : 12, fruit : 'zucchini',status:false, image : zucchini, mp3 : zucchiniSound, count : 0}, 
-            // {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
-            // {id : 14, fruit : 'horseradish',status:false, image : horseradish, mp3 : horseradishSound, count : 0}, 
-            // {id : 15, fruit : 'lemon',status:false, image : lemon, mp3 : lemonSound, count : 0}, 
-            // {id : 16, fruit : 'garlic',status:false, image : garlic, mp3 : garlicSound, count : 0},
+            {id : 13, fruit : 'mandarin',status:false, image : mandarin, mp3 : mandarinSound, count : 0}, 
+
+
             
           ]
+
           
           this._fruitsStatusFalse = []        
           this._fruitsDisplay = []
@@ -91,22 +89,22 @@ export default class FruitStore{
             {                
                 let fruits = [];                              
                 for(let i =0 ; i < this._fruitsStatusFalse.length; i++){                                                
-                    let tempIdFalse = this._fruitsStatusFalse[i].id;                      
-                        let result = this._fruitsDisplay.find(item => item.id === tempIdFalse);    
-                        if(result === undefined){
-                            fruits.push(tempIdFalse);
+                    let fruitId = this._fruitsStatusFalse[i].id;                      
+                        let found = this._fruitsDisplay.find(item => item.id === fruitId);    
+                        if(found === undefined){
+                            fruits.push(this._fruitsStatusFalse[i]);
                         }                        
                 }
                 
-                let fruit = getFruitRandom(fruits);               
+                let fruit = getFruitRandom(fruits);     
                 
-                let newFruit = this._fruitsStatusFalse.find(item => item.id === fruit);            
+                let newFruit = this._fruitsStatusFalse.find(item => item.id === fruit.id);            
                 this._fruitsDisplay = this._fruitsDisplay.map(item => item.id === id ? newFruit : item);
 
                 this._fruits = setStatusTrue(this._fruits,id);
                 this._fruitsStatusFalse = this._fruits.filter(fruit => fruit.status === false);           
     
-                fruit = getFruitRandom(this._fruitsDisplay);         
+                fruit = getFruitRandom(this._fruitsDisplay);  
                 newFruit = this._fruitsDisplay.find(item => item.fruit === fruit.fruit);                                 
                 this._currentFruit = newFruit;    
             } 

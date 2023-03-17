@@ -3,7 +3,7 @@ export const random = (n) => Math.floor(Math.random() * (n));
 
 export const getFruitRandom = (fruits) => {
     let index = random(fruits.length);
-    let fruit = fruits[index];   
+    let fruit = fruits[index];       
     return fruit;
 }
 
